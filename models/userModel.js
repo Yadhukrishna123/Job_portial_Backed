@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema({
         useUnifiedTopology: true,
         useCreateIndex: true,
         serverSelectionTimeoutMS: 30000,  
-        socketTimeoutMS: 30000  
+        socketTimeoutMS: 30000 ,
+        trim: true,  
     },
     lastName:{
         type :String,
@@ -19,7 +20,8 @@ const userSchema = new mongoose.Schema({
         useUnifiedTopology: true,
         useCreateIndex: true,
         serverSelectionTimeoutMS: 30000,  
-        socketTimeoutMS: 30000  
+        socketTimeoutMS: 30000  ,
+        trim: true,  
         
     },
     email:{
@@ -32,7 +34,8 @@ const userSchema = new mongoose.Schema({
         useUnifiedTopology: true,
         useCreateIndex: true,
         serverSelectionTimeoutMS: 30000,  
-        socketTimeoutMS: 30000  
+        socketTimeoutMS: 30000 ,
+        trim: true,   
     },
     password:{
         type :String,
@@ -41,10 +44,11 @@ const userSchema = new mongoose.Schema({
         useUnifiedTopology: true,
         useCreateIndex: true,
         serverSelectionTimeoutMS: 30000,  
-        socketTimeoutMS: 30000  
+        socketTimeoutMS: 30000 ,
+        
     },
     
-})
+},{ timestamps: true })
 
 module.exports = mongoose.model("users",userSchema)
 
