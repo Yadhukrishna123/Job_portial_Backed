@@ -7,7 +7,9 @@ const userSchema = new mongoose.Schema({
         minLength:3,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        serverSelectionTimeoutMS: 30000,  
+        socketTimeoutMS: 30000  
     },
     lastName:{
         type :String,
@@ -15,7 +17,9 @@ const userSchema = new mongoose.Schema({
         maxLength:50,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        serverSelectionTimeoutMS: 30000,  
+        socketTimeoutMS: 30000  
         
     },
     email:{
@@ -26,14 +30,18 @@ const userSchema = new mongoose.Schema({
         maxLength:20,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        serverSelectionTimeoutMS: 30000,  
+        socketTimeoutMS: 30000  
     },
     password:{
         type :String,
         require:true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        serverSelectionTimeoutMS: 30000,  
+        socketTimeoutMS: 30000  
     },
     
 })
