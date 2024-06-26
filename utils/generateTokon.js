@@ -9,7 +9,7 @@ exports.getToken = async (req, res) => {
         time:Date.now()
 
     }
-    const token = await jwt.sign(options, process.env.JWT_SECRET_KEY, { expiresIn: "5min" })
+    const token = await jwt.sign(options, process.env.JWT_SECRET_KEY, { expiresIn: "20min" })
     if (!token) {
         return res.status(500).json({
             success: false,
