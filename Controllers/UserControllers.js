@@ -143,42 +143,42 @@ exports.getUser = async (req,res)=>{
 }
 
 
-exports.updateUser = async (req,res)=>{
-    const {id} = req.params
+// exports.updateUser = async (req,res)=>{
+//     const {id} = req.params
 
-    const {firstName, lastName, email} = req.body
+//     const {firstName, lastName, email} = req.body
 
-    try {
-        const user =await User.findById(id)
+//     try {
+//         const user =await User.findById(id)
 
-        if(!user){
-            return res.status(404).json({
-                success:false,
-                message:"user not found"
-            })
-        }
+//         if(!user){
+//             return res.status(404).json({
+//                 success:false,
+//                 message:"user not found"
+//             })
+//         }
 
-        user.firstName = firstName
-        user.lastName = lastName
-        user.email =  email
+//         user.firstName = firstName
+//         user.lastName = lastName
+//         user.email =  email
 
-        user.save()
+//         user.save()
 
-        res.status(201).json({
-            success:true,
-            user,
-            message:"user updated succesfully"
-        })
+//         res.status(201).json({
+//             success:true,
+//             user,
+//             message:"user updated succesfully"
+//         })
 
        
 
-    } catch (error) {
-        res.status(500).json({
-            success:false,
-            message:error.message
-        })
-    }
-}
+//     } catch (error) {
+//         res.status(500).json({
+//             success:false,
+//             message:error.message
+//         })
+//     }
+// }
 
 exports.deleteUser = async (req,res) => {
     const {id} = req.params
@@ -197,6 +197,41 @@ exports.deleteUser = async (req,res) => {
         res.status(201).json({
             success:true,
             message:"user Deleted succesfully!"
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message:error.message
+        })
+    }
+}
+
+exports.EditUser = async (req,res) =>{
+
+    const {id} = req.params
+
+    const {firstName, lastName, email} = req.body
+
+    try {
+        const user =await User.findById (id)
+        if(!user){
+            return res.status(404).json({
+                success:false,
+                message:"user not found"
+            })
+        }
+
+        user.firstName = firstName
+        user.lastName = lastName
+        user.email =  email
+
+        user.save()
+
+
+        res.status(200).json({
+            success:true,
+            user,
+            messgae:"user updated successfuly"
         })
     } catch (error) {
         res.status(500).json({

@@ -13,4 +13,4 @@ router.route("/detail/:id").get(authToken, getDetails).delete(authToken, deleteD
 
 
 
-module.exports = router 
+module.exports = router
