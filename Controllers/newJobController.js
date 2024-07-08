@@ -148,3 +148,27 @@ exports.deleteJob = async (req,res) => {
         })
     }
 }
+
+exports.getFilter= async (req,res)=>{
+    try {
+        const search = await JobModel.find()
+        if(!search){
+            return res.status(404).json({
+                success:true,
+                message:"Jobs not found"
+            })
+        }
+        res.status(200).json({
+            successs: true,
+            message:"Jobs fatched successfully",
+            search,
+            
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message:error.message
+        })
+    }
+} 
+

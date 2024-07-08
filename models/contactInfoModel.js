@@ -32,6 +32,10 @@ const ContactInfoSchema = new mongoose.Schema({
     resume:{
         type:String,
         require:true,
+    },
+    jobId:{
+        type:String,
+        require:true, 
     }
 
 })

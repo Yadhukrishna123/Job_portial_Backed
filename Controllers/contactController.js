@@ -2,7 +2,7 @@ const ContactInfo = require("../models/contactInfoModel")
 
 
 exports.ContactDetails = async (req,res)=>{
-    const { firstName, lastName, email, state, city, address,  phoneNumber} = req.body;
+    const { firstName, lastName, email, state, city, address,  phoneNumber,jobId} = req.body;
 
     const resume = req.file.path
    
@@ -18,7 +18,8 @@ exports.ContactDetails = async (req,res)=>{
             city, 
             address, 
             phoneNumber,
-            resume
+            resume,
+            jobId
         })
         
         if(!contacts){
